@@ -80,6 +80,23 @@ describe("Controller Tests", () => {
     consoleSpy.mockRestore();
   });
 
+  //update an item
+  it("should update an item successfully", async () => {
+    const mockItem = { _id: "123", title: "Item to be updated" };
+
+    Item.findByIdAndUpdate.mockResolvedValue(mockItem);
+
+    const consoleSpy = jest.spyOn(console, "info").mockImplementation(() => {});
+
+    await updateItem(mockItem._id, mockItem);
+
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "Item updated successfully:",
+      mockItem
+    );
+    consoleSpy.mockRestore();
+  });
+
   //find an item
   it("should find an item successfully", async () => {
     const mockItem = [{ title: "Item to be found" }];

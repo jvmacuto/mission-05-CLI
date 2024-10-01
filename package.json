@@ -7,7 +7,8 @@
     "mission-05-cli": "../commanders/commander.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
